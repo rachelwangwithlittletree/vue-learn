@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="app">
-      <h2>{{ getFullName }}</h2>>
+      <h2>总价格：{{  }}</h2>>
     </div>
     <script src="../js/vue.js"></script>
     <script>
@@ -19,11 +19,14 @@
             {id: 003, name: '深入理解计算机原理', price: 200},
             {id: 004, name: '现代操作系统', price: 90}
           ]
-
         },
         computed:{
-          fullName: function(){
-            return this.firstName + ' ' + this.lastName
+          totalPrice: function(){
+            let result = 0
+            for(let i=0 ; i<this.books.length; i++){
+              result += this.books[i].price
+            } 
+            return result
           }
         }
       })
