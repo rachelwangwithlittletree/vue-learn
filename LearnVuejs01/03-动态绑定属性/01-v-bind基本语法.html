@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id ="app">
+      <img :src="imgURL" alt="">
+      <a :href="imgURL">点击它的头像</a>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          imgURL: 'https://pic2.zhimg.com/f8bd5a36aa9c4ddc0275c128d9fd0f8e_xll.jpg'
+        }
+      })
+    </script>
+  </body>
+</html>
