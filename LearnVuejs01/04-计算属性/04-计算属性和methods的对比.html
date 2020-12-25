@@ -6,8 +6,11 @@
     </head>
     <body>
         <div id="app">
+            <!-- 直接拼接，语法过于繁琐 -->
             <h2>{{ firstName }} {{lastName}}</h2>
+            <!-- 通过定义methods，每被写一次就调用一次 -->
             <h2>{{ getFullName }}</h2>
+            <!-- 通过计算属性，计算属性会有缓存，如果值没有发生改变，只会调用一次 -->
             <h2>{{ fullName }} </h2>
             <h2>{{ fullName }} </h2>
             <h2>{{ fullName }} </h2>
