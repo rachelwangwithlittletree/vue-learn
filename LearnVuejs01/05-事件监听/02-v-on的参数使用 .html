@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="btnClick">按钮</button>
+      <button @click="btnClick2()">按钮</button> <!--可以不用小括号-->
+      <button @click="btnClick2">按钮</button> <!-- 浏览器默认会把event对象传入到函数里-->
+      <!-- 方法定义时，需要传入$event以及其他的参数 -->
+      <button @click="btnClick3('aaa',$event)">按钮</button>
+      <button @click="btnClick">按钮</button>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          counter: 1
+
+        },
+        methods: {
+          btnClick(){
+            console.log('btnClick 被执行了')
+          },
+          btnClick2(event){
+            console.log('---',event)
+          },
+          btnClick3(abc,event){
+            console.log('......',abc,event)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
