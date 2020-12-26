@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <!-- 绑定的key是跟item要保证是一对一的关系 -->
+            <ul>
+                <li v-for='item in letters' :key="item">{{ item }}</li>
+            </ul>
+        </div>
+        <script src="../js/vue.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    letters: ['A', 'B', 'C', 'D', 'F']
+                }
+            })
+        </script>
+    </body>
+</html>
