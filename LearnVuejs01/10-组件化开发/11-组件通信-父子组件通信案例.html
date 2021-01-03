@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id='app'>
+            <cpn :cnumber1='num1' :cnumber2='num2' @numchange='numchange'></cpn>
+        </div>
+        <template id='cpn'>
+            <div>
+                <h2>props: {{cnumber1}}</h2>
+                <h2>data：{{dNumber1}}</h2>
+                <input type="text" :value='dNumber1' @input='numchange(1,$event)'>
+                <h2>props: {{cnumber2}}</h2>
+                <h2>data: {{dNumber2}}</h2>
+                <input type="text" :value='dNumber2' @input='numchange(2,$event)'>
+            </div>
+        </template>
+        <script src='../js/vue.js'></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    num1: 1,
+                    num2: 0
+                },
+                methods: {
+                    numchange(whichData,value){
+                        console.log(typeof(value))
+                        if(whichData === 1){
+                            this.num1 = value * 1
+                        }else {
+                            this.num2 = value * 1
+                        }
+                    }
+                },
+                components: {
+                    cpn: {
+                        template: '#cpn',
+                        props: {
+                            cnumber1: Number,                            
+                            cnumber2: Number
+                        },
+                        data(){
+                            return {
+                                dNumber1: this.cNumber1,
+                                dNumber2: this.cNumber2
+                            }
+                        },
+                        methods: {
+                            numchange(whichData,event){
+                                let tmpValue = event.target.value
+                                if(whichData === 1){
+                                    this.dNumber1 = tmpValue
+                                }else {
+                                    this.dNumber2 = tmpValue
+                                }
+                                this.$emit('numchange',whichData, tmpValue)
+                            }
+                        }
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
