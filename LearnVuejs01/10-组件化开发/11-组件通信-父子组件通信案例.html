@@ -59,6 +59,12 @@
                                 }
                                 this.$emit('numchange',whichData, tmpValue)
                             }
+                        },
+                        watch: {
+                            dNumber1(newValue){
+                                this.dNumber1 = newValue
+                                this.$emit('number1Change',newValue)
+                            }
                         }
                     }
                 }
