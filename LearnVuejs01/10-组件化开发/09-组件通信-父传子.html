@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+  <body>
+    <div id='app'>
+      <cpn></cpn>
+    </div>
+    <template id='cpn'>
+      <div>
+        <h2>我是cpn子组件</h2>
+      </div>
+    </template>
+    <script src='../js/vue.js'></script>
+    <script>
+      const cpn = {
+        template: '#cpn',
+        props: {
+
+        },
+        data(){
+
+        },
+        components: {
+          cpn
+        }
+      }
+      const app = new Vue({
+        el: '#app',
+        data: {
+
+        }
+      })
+
+
+      
+    </script>
+  </body>
+  </html>
