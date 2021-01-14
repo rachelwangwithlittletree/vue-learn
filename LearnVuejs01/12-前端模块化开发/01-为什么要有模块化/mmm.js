@@ -5,3 +5,6 @@
   }
   
 })()
+
+//commonjs导入模块
+// var {flag, sum} = require('./aaa.js')
